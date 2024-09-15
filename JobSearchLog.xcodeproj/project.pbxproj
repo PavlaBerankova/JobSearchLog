@@ -12,18 +12,32 @@
 		445038012C94B34000D24926 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 445038002C94B34000D24926 /* FirebaseAuth */; };
 		445038032C94B34000D24926 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 445038022C94B34000D24926 /* FirebaseDatabase */; };
 		44C985072C8B589400C7BE27 /* JobSearchLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C985062C8B589400C7BE27 /* JobSearchLogApp.swift */; };
-		44C985092C8B589400C7BE27 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C985082C8B589400C7BE27 /* ContentView.swift */; };
 		44C9850B2C8B589600C7BE27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C9850A2C8B589600C7BE27 /* Assets.xcassets */; };
 		44C9850E2C8B589600C7BE27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C9850D2C8B589600C7BE27 /* Preview Assets.xcassets */; };
+		44D8A3E12C961A8400D87C6C /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8A3E02C961A8400D87C6C /* AuthenticationManager.swift */; };
+		44D8A3E32C961AE700D87C6C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8A3E22C961AE700D87C6C /* RootView.swift */; };
+		44D8A3E52C961B5400D87C6C /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8A3E42C961B5400D87C6C /* SignInEmailView.swift */; };
+		44D8A3E72C9629EB00D87C6C /* AuthDataResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8A3E62C9629EB00D87C6C /* AuthDataResultModel.swift */; };
+		44D8A3EA2C96A11800D87C6C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8A3E92C96A11800D87C6C /* SettingsView.swift */; };
+		44D8A3EC2C96A18900D87C6C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8A3EB2C96A18900D87C6C /* SettingsViewModel.swift */; };
+		44D8A3EE2C96A36C00D87C6C /* SignInEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8A3ED2C96A36C00D87C6C /* SignInEmailViewModel.swift */; };
+		44D8A3F02C96A3D500D87C6C /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8A3EF2C96A3D500D87C6C /* AuthenticationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		445037FB2C94B2A800D24926 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		44C985032C8B589400C7BE27 /* JobSearchLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobSearchLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C985062C8B589400C7BE27 /* JobSearchLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchLogApp.swift; sourceTree = "<group>"; };
-		44C985082C8B589400C7BE27 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		44C9850A2C8B589600C7BE27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44C9850D2C8B589600C7BE27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		44D8A3E02C961A8400D87C6C /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		44D8A3E22C961AE700D87C6C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		44D8A3E42C961B5400D87C6C /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
+		44D8A3E62C9629EB00D87C6C /* AuthDataResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataResultModel.swift; sourceTree = "<group>"; };
+		44D8A3E92C96A11800D87C6C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		44D8A3EB2C96A18900D87C6C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		44D8A3ED2C96A36C00D87C6C /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
+		44D8A3EF2C96A3D500D87C6C /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +74,9 @@
 			isa = PBXGroup;
 			children = (
 				44C985062C8B589400C7BE27 /* JobSearchLogApp.swift */,
-				44C985082C8B589400C7BE27 /* ContentView.swift */,
+				44D8A3E22C961AE700D87C6C /* RootView.swift */,
+				44D8A3E82C9629F000D87C6C /* Model */,
+				44D8A3DF2C961A7100D87C6C /* Authentication */,
 				445037FB2C94B2A800D24926 /* GoogleService-Info.plist */,
 				44C9850A2C8B589600C7BE27 /* Assets.xcassets */,
 				44C9850C2C8B589600C7BE27 /* Preview Content */,
@@ -74,6 +90,43 @@
 				44C9850D2C8B589600C7BE27 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		44D8A3DF2C961A7100D87C6C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				44D8A3E02C961A8400D87C6C /* AuthenticationManager.swift */,
+				44D8A3EF2C96A3D500D87C6C /* AuthenticationView.swift */,
+				44D8A3F22C96A40300D87C6C /* SettingsView */,
+				44D8A3F12C96A3F100D87C6C /* SignInEmailView */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		44D8A3E82C9629F000D87C6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44D8A3E62C9629EB00D87C6C /* AuthDataResultModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44D8A3F12C96A3F100D87C6C /* SignInEmailView */ = {
+			isa = PBXGroup;
+			children = (
+				44D8A3E42C961B5400D87C6C /* SignInEmailView.swift */,
+				44D8A3ED2C96A36C00D87C6C /* SignInEmailViewModel.swift */,
+			);
+			path = SignInEmailView;
+			sourceTree = "<group>";
+		};
+		44D8A3F22C96A40300D87C6C /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				44D8A3E92C96A11800D87C6C /* SettingsView.swift */,
+				44D8A3EB2C96A18900D87C6C /* SettingsViewModel.swift */,
+			);
+			path = SettingsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +208,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44C985092C8B589400C7BE27 /* ContentView.swift in Sources */,
+				44D8A3E32C961AE700D87C6C /* RootView.swift in Sources */,
+				44D8A3EE2C96A36C00D87C6C /* SignInEmailViewModel.swift in Sources */,
+				44D8A3E12C961A8400D87C6C /* AuthenticationManager.swift in Sources */,
 				44C985072C8B589400C7BE27 /* JobSearchLogApp.swift in Sources */,
+				44D8A3EA2C96A11800D87C6C /* SettingsView.swift in Sources */,
+				44D8A3F02C96A3D500D87C6C /* AuthenticationView.swift in Sources */,
+				44D8A3E72C9629EB00D87C6C /* AuthDataResultModel.swift in Sources */,
+				44D8A3E52C961B5400D87C6C /* SignInEmailView.swift in Sources */,
+				44D8A3EC2C96A18900D87C6C /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +358,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,6 +388,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
