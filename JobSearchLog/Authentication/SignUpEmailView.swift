@@ -7,24 +7,31 @@
 
 import SwiftUI
 
-struct SignInEmailView: View {
-    @StateObject var model = SignInEmailViewModel()
+struct SignUpEmailView: View {
+    @StateObject var model = UserAuthViewModel()
+    @Binding var showAuthenticationView: Bool
+    @State private var password = String()
 
     var body: some View {
         NavigationStack {
             VStack {
                 Group {
                     TextField("Email...", text: $model.email)
-                    SecureField("Password...", text: $model.password)
+                    SecureField("Password...", text: $password)
                 }
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
 
                 Button {
-                    model.signIn()
+                    Task {
+                            model.signUp(inputPassword: password)
+                            showAuthenticationView = false
+                            print("Your account has been created")
+                            return
+                    }
                 } label: {
-                    Text("Sign In")
+                    Text("Sign Up")
                         .font(.headline)
                         .foregroundStyle(.white)
                         .frame(height: 55)
@@ -34,7 +41,7 @@ struct SignInEmailView: View {
                 }
             }
             .padding()
-            .navigationTitle("Sign In with Email")
+            .navigationTitle("Sign Up with Email")
 
             Spacer()
         }
@@ -42,5 +49,5 @@ struct SignInEmailView: View {
 }
 
 #Preview {
-    SignInEmailView()
+    SignUpEmailView(showAuthenticationView: .constant(false))
 }

@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct RootView: View {
-    @State private var showSignInView = false
+    @State private var showAuthenticationView = false
 
     var body: some View {
         ZStack {
             NavigationStack {
-                SettingsView(showSignInView: $showSignInView)
+                SettingsView(showAuthenticationView: $showAuthenticationView)
             }
             .onAppear {
                 // Check if user is authenticated
                 let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
-                self.showSignInView = authUser == nil
+                self.showAuthenticationView = authUser == nil
             }
-            .fullScreenCover(isPresented: $showSignInView) {
+            .fullScreenCover(isPresented: $showAuthenticationView) {
                 NavigationStack {
-                    AuthenticationView()
+                    AuthenticationView(showAuthenticationView: $showAuthenticationView)
                 }
             }
         }
