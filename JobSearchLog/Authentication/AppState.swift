@@ -7,12 +7,30 @@
 
 import FirebaseAuth
 import Foundation
+import SwiftUI
 
 
 @MainActor
-final class UserAuthViewModel: ObservableObject {
+final class AppState: ObservableObject {
     @Published var email = String()
+    @Published var isAuthenticated = false
     private let keychainService = KeychainService.shared
+
+    init() {
+        checkAuthenticationStatus()
+    }
+
+    func checkAuthenticationStatus() {
+        if keychainService.getIDTokenFromKeychain(email: email) != nil {
+            // Token byl nalezen v Keychainu, uživatel je autentizován
+            self.isAuthenticated = true
+            logger.log("User authenticated with token from Keychain")
+        } else {
+            // Token nebyl nalezen nebo uživatel není přihlášen
+            self.isAuthenticated = false
+            logger.log("User not authenticated")
+        }
+    }
 
     func signUp(inputPassword: String) {
         var password = inputPassword
@@ -99,23 +117,32 @@ final class UserAuthViewModel: ObservableObject {
 //    }
 
     func logIn(email: String, password: String) async throws {
-        guard !email.isEmpty, !password.isEmpty else {
+        guard !email.isEmpty, !password.isEmpty && password.count > 6 else {
             print("No email or password found")
             return
         }
 
         try await AuthenticationManager.shared.logInUser(email: email, password: password)
+        self.isAuthenticated = true
         print("You have been logged")
+
+
+        // Debug: Zkontroluj, zda se isAuthenticated mění
+        print("User logged out. isAuthenticated: \(self.isAuthenticated)") // Přidáno pro debug
     }
 
-    func signOut() throws {
+    func logOut() throws {
         try AuthenticationManager.shared.signOut()
-
         // Při odhlášení smažeme ID token z Keychainu
         if keychainService.deleteIDTokenFromKeychain(email: email) {
             logger.log("ID token deleted from Keychain")
         } else {
             logger.log("Failed to delete ID token from Keychain")
         }
+
+
+           // Debug: Zkontroluj, zda se isAuthenticated mění
+           self.isAuthenticated = false
+           print("User logged out. isAuthenticated: \(self.isAuthenticated)") // Přidáno pro debug
     }
 }

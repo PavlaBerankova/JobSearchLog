@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct LogInEmailView: View {
-    @StateObject var model = UserAuthViewModel()
+    @EnvironmentObject var appState: AppState
+    @Binding var isAuthenticated: Bool
     @State private var email = String()
     @State private var password = String()
-    @Binding var showAuthenticationView: Bool
 
     var body: some View {
         NavigationStack {
             VStack {
                 Group {
-                    TextField("Your Email...", text: $model.email)
+                    TextField("Your Email...", text: $email)
                     SecureField("Password...", text: $password)
                 }
                 .padding()
@@ -26,8 +26,14 @@ struct LogInEmailView: View {
 
                 Button {
                     Task {
-                       try await model.logIn(email: email ,password: password)
-                        showAuthenticationView.toggle()
+                        do {
+                            try await appState.logIn(email: email, password: password)
+                            self.isAuthenticated = true
+                        } catch {
+                            print("Login failed: \(error)")
+                        }
+                        //                       try await appState.logIn(email: email ,password: password)
+                        //                       appState.isAuthenticated = true
                     }
                 } label: {
                     Text("Log In")
@@ -39,7 +45,12 @@ struct LogInEmailView: View {
                         .cornerRadius(10)
                 }
                 Button {
-
+                    Task {
+                        do {
+                            try await appState.resetPassword()
+                        }
+                    }
+                    print("Your password has been reset.")
                 } label: {
                     Text("Forgot your password?")
                 }
@@ -53,5 +64,6 @@ struct LogInEmailView: View {
 }
 
 #Preview {
-    LogInEmailView(showAuthenticationView: .constant(false))
+    LogInEmailView(isAuthenticated: .constant(false))
+        .environmentObject(AppState())
 }

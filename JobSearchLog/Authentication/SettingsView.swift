@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @StateObject var model = UserAuthViewModel()
-    @Binding var showAuthenticationView: Bool
+    @EnvironmentObject var appState: AppState
+    @Binding var isAuthenticated: Bool
+
     @State private var showSheetForm = false
     @State private var currentPassword = String()
     @State private var newPassword = String()
@@ -19,8 +20,8 @@ struct SettingsView: View {
             Button {
                 Task {
                     do {
-                        try model.signOut()
-                        showAuthenticationView.toggle()
+                        try appState.logOut()
+                        self.isAuthenticated = false
                         logger.log("You have been sign out.")
                     } catch {
                         logger.error("Sign Out error: \(error)")
@@ -34,7 +35,7 @@ struct SettingsView: View {
                 Button {
                     Task {
                         do {
-                            try await model.resetPassword()
+                            try await appState.resetPassword()
                         }
                     }
                 } label: {
@@ -62,6 +63,7 @@ struct SettingsView: View {
 
 #Preview {
     NavigationStack {
-        SettingsView(showAuthenticationView: .constant(false))
+        SettingsView(isAuthenticated: .constant(false))
     }
+    .environmentObject(AppState())
 }

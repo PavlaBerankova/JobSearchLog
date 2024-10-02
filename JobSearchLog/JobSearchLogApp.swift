@@ -23,12 +23,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct JobSearchLogApp: App {
     // register app delegate for Firebase setup
-      @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var appState = AppState()
 
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 RootView()
+                    .environmentObject(appState)
             }
         }
     }

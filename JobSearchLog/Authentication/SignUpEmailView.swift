@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct SignUpEmailView: View {
-    @StateObject var model = UserAuthViewModel()
-    @Binding var showAuthenticationView: Bool
+    @EnvironmentObject var appState: AppState
+    @Binding var isAuthenticated: Bool
     @State private var password = String()
 
     var body: some View {
         NavigationStack {
             VStack {
                 Group {
-                    TextField("Email...", text: $model.email)
+                    TextField("Email...", text: $appState.email)
                     SecureField("Password...", text: $password)
                 }
                 .padding()
@@ -25,8 +25,8 @@ struct SignUpEmailView: View {
 
                 Button {
                     Task {
-                            model.signUp(inputPassword: password)
-                            showAuthenticationView = false
+                            appState.signUp(inputPassword: password)
+                            appState.isAuthenticated = false
                             print("Your account has been created")
                             return
                     }
@@ -49,5 +49,6 @@ struct SignUpEmailView: View {
 }
 
 #Preview {
-    SignUpEmailView(showAuthenticationView: .constant(false))
+    SignUpEmailView(isAuthenticated: .constant(false))
+        .environmentObject(AppState())
 }
